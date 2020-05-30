@@ -10,9 +10,19 @@ body, html {
 .nav-link {
     color: #ffffff;
 }
-.bg {
+.part1 {
+    position: relative;
     height: 600px;
     width: 100%;
     background: url(./hinh-nen-sieu-xe-ferari-3.jpg) no-repeat center center fixed;
     background-size: 100% 100%;
 }
+/* .content {
+    position: absolute;
+    font-size: 40px;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+} */
