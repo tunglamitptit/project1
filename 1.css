@@ -7,43 +7,76 @@ body, html {
 * {
     box-sizing: border-box;
 }
-.header_wrapper {
+/* .header_wrapper {
     width: 100%;
     height: 100%;
     position: relative;
-}
-.navbar {
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    z-index: 6;
-}
-.contact_details {
-    margin: 0;
-    padding: 0;
-    height: 45px;
-    padding: 10px;
-}
-.nav-link {
-    color: #ffffff;
-}
+} */
 #action_bar {
-    height: 7%;
+    height: 5%;
+    line-height: 21px;
     width: 100%;
     color: #ffffff;
-    z-index: 6;
-    position: relative;
-    display: inline-block;
     background-color: #333333;
+}
+#action_bar .container {
+    height: 100%;
+    padding: 0;
+} 
+#action_bar .contact_details {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    float: left;
 }
 .contact_details li {
     display: inline-block;
     margin: 0;
     margin-right: 10px;
+    font-size: 14px;
+    padding: 13px 0px;
 }
 .contact_details a {
     color: #0095eb;
+}
+.contact_details .slogan {
+    color: #adadad;
+}
+#action_bar .social {
+    float: right;
+    height: 100%;
+    padding: 13px 0;
+    margin: 0;
+}
+#action_bar .social li {
+    display: inline-block;
+    font-size: 100%;
+    margin-right: 5px;
+}
+.social i {
+    margin: 0 3px;
+    font-size: large;
+    color: #adadad;
+}
+.social i:hover {
+    color: #f0eded;
+}
+#top_bar {
+    height: 10%;
+}
+#top_bar .container {
+    padding: 0;
+    height: 100%;
+}
+#top_bar .navbar {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    z-index: 6;
+}
+.nav-link {
+    color: #6a6c74;
 }
 .slide {
     width: 100%;
