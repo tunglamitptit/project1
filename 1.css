@@ -13,8 +13,10 @@ body, html {
     position: relative;
 } */
 #action_bar {
-    height: 5%;
-    line-height: 21px;
+    height: 7.5%;
+    /* line-height: 21px; */
+    top: 0;
+    left: 0;
     width: 100%;
     color: #ffffff;
     background-color: #333333;
@@ -77,6 +79,13 @@ body, html {
 }
 .nav-link {
     color: #6a6c74;
+}
+.slider {
+    height: 100%;
+    width: 100%;
+    background: url(./2017-IAA-Mercedes-AMG-Project-ONE-12-1400x600.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    position: relative;
 }
 .slide {
     width: 100%;
