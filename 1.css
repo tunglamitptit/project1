@@ -7,13 +7,8 @@ body, html {
 * {
     box-sizing: border-box;
 }
-/* .header_wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-} */
 #action_bar {
-    height: 7.5%;
+    height: 6%;
     /* line-height: 21px; */
     top: 0;
     left: 0;
@@ -36,7 +31,7 @@ body, html {
     margin: 0;
     margin-right: 10px;
     font-size: 14px;
-    padding: 13px 0px;
+    padding: 3.5% 0px;
 }
 .contact_details a {
     color: #0095eb;
@@ -47,7 +42,7 @@ body, html {
 #action_bar .social {
     float: right;
     height: 100%;
-    padding: 13px 0;
+    padding: 1.5% 0;
     margin: 0;
 }
 #action_bar .social li {
@@ -80,16 +75,20 @@ body, html {
 .nav-link {
     color: #6a6c74;
 }
+.w3-dropdown-hover.more:hover {
+    color: #0095eb;
+}
 .slider {
-    height: 100%;
+    height: 80%;
     width: 100%;
-    background: url(./2017-IAA-Mercedes-AMG-Project-ONE-12-1400x600.jpg) no-repeat center center;
+    background: url(./2335-x-1385px-1-1024x607.jpg) no-repeat center center;
     background-size: 100% 100%;
     position: relative;
 }
 .slide {
     width: 100%;
-    height: 100%;
+    height: 80%;
+    position: relative;
 }
 .slide_1 {
     width: 100%;
