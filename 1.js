@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",function() {
         var nutnay = this;
         var vitrislide = 0;
         console.log(nutnay.previousElementSibling);
-        for(var i = 0;nutnay = nutnay.previousElementSibling; vitrislide++) {
+        for(var i = 0; nutnay = nutnay.previousElementSibling; vitrislide++) {
             //chay den khi nut nay  = null thi dung.
             // chay xong lenh nay khi click vao nut ta lay dc vitrislide
         }
