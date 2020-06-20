@@ -131,6 +131,25 @@ body, html {
     transform: translateX(-50%);
     z-index: 999;
 }
+.move span{
+    position: absolute;
+	color: white;
+    font-size: 80px;
+    opacity: 0.6;
+    z-index: 999;
+}
+span#btn-prev {
+	position: absolute;
+	top: 50%;
+    left: 5%;
+	cursor: pointer;
+}
+span#btn-next {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	cursor: pointer;
+}
 .nut ul li {
     width: 10px;
     height: 10px;
@@ -143,7 +162,7 @@ body, html {
 .nut ul li:hover {
     background-color: white;
 }
-.ra {
+.active {
     transition: left 0s ease-out;
     opacity: 1;
 }
@@ -276,8 +295,13 @@ body, html {
     color: #adadad;
 }
 .font h4 {
-    font-size: 24spx;
-    color: #f0eded;
+    font-size: 24px;
+    color: #ffffff;
+}
+.font .info__contact-item {
+    margin-bottom: 15px;
+    color: #adadad;
+    font-size: 17px;
 }
 footer {
     text-align: center;
@@ -286,3 +310,49 @@ footer {
     background-color: #222222;
     color: #f0eded;
 }
+
+/* .bien-mat-ben-trai{
+    animation: bien-mat-ben-trai 1s forwards;
+}
+@-webkit-keyframes bien-mat-ben-trai{
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+.di-vao-ben-phai{
+    animation: di-vao-ben-phai 1s forwards;
+}
+@-webkit-keyframes di-vao-ben-phai{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+xử lý nút prev
+.bien-mat-ben-phai{
+    animation: bien-mat-ben-phai 1s forwards;
+}
+@-webkit-keyframes bien-mat-ben-phai{
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(100%);
+    }
+}
+.di-vao-ben-trai{
+    animation: di-vao-ben-trai 1s forwards;
+}
+@-webkit-keyframes di-vao-ben-trai{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+} */

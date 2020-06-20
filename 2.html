@@ -4,7 +4,7 @@
         <title>Project</title>  
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" type="text/css" href="./1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -17,11 +17,11 @@
                 <ul class="contact_details">
                     <li class="slogan">Have any question?</li>
                     <li class="phone">
-                        <i class="fa fa-phone"></i>
+                        <i class="fa fa-phone" style="color: #adadad"></i>
                         <a href="#">+84 397 561 148</a>
                     </li>
                     <li class="email">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-envelope" style="color: #adadad"></i>
                         <a href="#">tunglamldk@gmail.com</a>
                     </li>
                 </ul>
@@ -84,12 +84,16 @@
             </div>
         </div>
         <div class="slide">
-            <div class="slide_1 ra"></div>
+            <div class="slide_1 active"></div>
                 <div class="slide_2"></div>
                 <div class="slide_3"></div>
             </div>
-            <div class="nut">
-                <ul>
+            <div class="move">
+                <span id="btn-prev">&#8249;</span>
+                <span id="btn-next">&#8250;</span>
+            </div>
+            <div class="nut">               
+                <ul class="round">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -231,26 +235,26 @@
                 <h1 class="news-title">thế giới xe hơi</h1>
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="./hinh-nen-sieu-xe-1.jpg" alt="sieu xe" style="width: 100%;">
+                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
                         <h2>
                             <a href="#">News 1</a>
                         </h2>
                         <span class="times"></span>
                     </div>
                     <div class="col-sm-3">
-                        <img src="./hinh-nen-sieu-xe-1.jpg" alt="sieu xe" style="width: 100%;">
+                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
                         <h2>
                             <a href="#">News 2</a>
                         </h2>
                     </div>
                     <div class="col-sm-3">
-                        <img src="./hinh-nen-sieu-xe-1.jpg" alt="sieu xe" style="width: 100%;">
+                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
                         <h2>
                             <a href="#">News 3</a>
                         </h2>
                     </div>
                     <div class="col-sm-3">
-                        <img src="./hinh-nen-sieu-xe-1.jpg" alt="sieu xe" style="width: 100%;">
+                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
                         <h2>
                             <a href="#">News 4</a>
                         </h2>
@@ -353,7 +357,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 font" style="border-right: 2px solid #47473e;">
-                        <h4>About Website</h4>
+                        <h4>Giới thiệu</h4>
                         <p>Lamtung mang đến cho bạn những lựa chọn xe hơi tốt nhất</p>
                     </div>
                     <div class="col-sm-4 font" style="border-right: 2px solid #47473e;">
@@ -361,10 +365,23 @@
                         <p>Cơ sở 1: </p>
                         <p>Cơ sở 2: </p>
                         <p>Cơ sở 3: </p>
+                        <p>Cơ sở 4: </p>
+                        <p>Cơ sở 5: </p>
                     </div>
                     <div class="col-sm-4 font">
-                        <h4>Liên hệ với chúng tôi</h4>
-                        <p>Lamtung mang đến cho bạn những lựa chọn xe hơi tốt nhất</p>
+                        <h4>Liên hệ</h4>
+                        <div class="info__contact-item">
+                            <span class="fa fa-map-marker"></span>
+                        </div>
+                        <div class="info__contact-item">
+                            <span class="fa fa-map-marker"></span>
+                        </div>
+                        <div class="info__contact-item">
+                            <span class="fa fa-phone"> Hotline: +84 397 561 148</span>
+                        </div>
+                        <div class="info__contact-item">
+                            <span class="fa fa-envelope"> Email: tunglamldk@gmail.com</span>
+                        </div>
                     </div>
                 </div>
             </div>
