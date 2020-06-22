@@ -71,13 +71,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Salon ô tô</a>
                         </li>
-                        <li class="nav-item w3-dropdown-hover">
+                        <li class="nav-item w3-dropdown-hover" style="border-right: 1px solid #f2f2e6;">
                             <a class="nav-link w3-button w3-primary more" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tin tức xe hơi</a>
                             <div class="w3-dropdown-content w3-bar-block w3-border" aria-labelledby="navbarDropdownMenuLink" style="z-index: 4;">
                               <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Action</a>
                               <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Another action</a>
                               <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Something else here</a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Đăng ký</a>
                         </li>
                     </ul>
                 </div>
