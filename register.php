@@ -2,13 +2,14 @@
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <title>Đăng ký thành viên</title>
     </head>
     <body>
         <form action="register_submit.php" method="POST">
             <table>
                 <tr>
-                    <td>User_name: </td>
+                    <td>Username: </td>
                     <td><input type="text" name="username"></td>
                 </tr>
                 <tr>
