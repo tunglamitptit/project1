@@ -8,9 +8,9 @@
     $conn = new mysqli($server_name, $username, $password, $dbname);
 
     // Check connection
-    // if ($conn->connect_error) {
-    //   die("Connection failed: " . $conn->connect_error);
-    // }
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
     // $result = $conn->query("SELECT * FROM user");
 
     // if ($result->num_rows > 0) {

@@ -356,3 +356,8 @@ xử lý nút prev
         transform: translateX(0%);
     }
 } */
+.register {
+    left: 50%;
+    top: 50%;
+    padding: 20px;
+}
