@@ -14,21 +14,22 @@
         $result_email = $conn->query("SELECT * FROM users WHERE Email='$email'");
         //Kiểm tra điều kiện  
         if ($username == "" || $password == "" || $re_password == "" || $email == "") {
-            $nameErr = "Username is required";
-            $passErr = "Password is required";
-            $emailErr = "Email is required";
+            $nameErr = "Username is required *";
+            $passErr = "Password is required *";
+            $emailErr = "Email is required *";
             $check = false;
         }       
         if ($password != $re_password) {
-            $repassErr = "Password didn't match";
+            $repassErr = "Password didn't match *";
+            $passErr = "";
             $check = false;
         }  
         if ($result_name->num_rows > 0) {
-            $nameErr = "Username available";
+            $nameErr = "Username available *";
             $check = false;
         }  
         if ($result_email->num_rows > 0) {
-            $emailErr = "Email available";
+            $emailErr = "Email available *";
             $check = false;
         }        
         if ($check) {
@@ -58,9 +59,9 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">    -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-        <link rel="stylesheet" type="text/css" href="./1.css">
+        <link rel="stylesheet" type="text/css" href="./login_logout.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <title>Đăng ký thành viên</title>
     </head>
     <body>
@@ -106,30 +107,32 @@
                 </ul>
             </div>
         </div>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-            <div class="container">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="register">
+            <div class="container form">
+                <div><h2>Create an account</h2></div>
                 <div>
                     <label>Username: </label>
                     <input type="text" name="username" class="form-control" value="<?php echo $username;?>">
-                    <span class="error" style="color: #ff0000"><?php echo $nameErr; $nameErr ="";?></span>
+                    <div class="warning"><span class="error"><?php echo $nameErr;?></span></div>
                 </div>                  
                 <div>
-                </div>
                     <label>Password: </label>
-                    <input type="password" name="password" class="form-control">
-                    <span class="error"><?php echo $passErr;?></span>
+                    <input type="password" name="password" class="form-control"  value="<?php echo $password;?>">
+                    <div class="warning"><span class="error"><?php echo $passErr;?></span></div>
+                </div>
                 <div>
                     <label>Repassword: </label>
                     <input type="password" name="re_password" class="form-control" >
-                    <span class="error"><?php echo $repassErr;?></span>
+                    <div class="warning"><span class="error"><?php echo $repassErr;?></span></div>
                 </div>                   
                 <div>
-                </div>
                     <label>Email: </label>
                     <input type="email" name="email" class="form-control" value="<?php echo $email;?>">
-                    <span class="error"><?php echo $emailErr;?></span>
+                    <div class="warning"><span class="error"><?php echo $emailErr;?></span></div>
+                </div>                    
                 <div>
-                    <button type="submit" name="submit" class="btn btn-primary">Register</button>
+                    <button id="submit" type="submit" name="submit">Register</button>
+                    <button id="submit" name="login" style="margin-left: 20px;">Login</button>
                 </div>   
             </div>                                                          
         </form>
