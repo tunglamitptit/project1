@@ -38,6 +38,8 @@
             // thực thi câu $sql với biến conn lấy từ file connect.php
             mysqli_query($conn, $sql);
             echo "<script language='javascript'>alert('Đăng ký thành công!');</script>";
+            $username = $password = $re_password = $email = "";
+            header("location:login.php");
         }
     }
 
@@ -56,7 +58,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">    -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" type="text/css" href="./login_logout.css">
@@ -134,7 +136,7 @@
                     <button id="submit" type="submit" name="submit">Register</button>
                     <button id="submit" name="login" style="margin-left: 20px;">Login</button>
                 </div>   
-            </div>                                                          
+            </div>                                                    
         </form>
     </body>
 </html>

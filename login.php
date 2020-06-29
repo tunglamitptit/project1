@@ -1,7 +1,22 @@
+<?php
+    include "connect.php";
+    $name = $pass = $err = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST["username"];
+        $pass = $_POST["password"];
+        $pass = md5($pass);
+        $result = $conn->query("SELECT * FROM users WHERE Username='$name' AND Password='$pass'");
+        if ($result->num_rows > 0) {
+            echo "1";
+        } else {
+            $err = "Tài khoản hoặc mật khẩu không chính xác";
+        }
+    }  
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">    -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" type="text/css" href="./login_logout.css">
@@ -52,5 +67,22 @@
                 </ul>
             </div>
         </div>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="register">
+            <div class="container form">
+                <div><h2>Log In</h2></div>
+                <div class="warning"><span class="error"><?php echo $err?></span></div>
+                <div>
+                    <label>Username: </label>
+                    <input type="text" name="username" class="form-control">
+                </div>                  
+                <div>
+                    <label>Password: </label>
+                    <input type="password" name="password" class="form-control">
+                </div>                                    
+                <div>
+                    <button id="submit" type="submit" name="login" style="margin: 10px 95px;">Login</button>
+                </div>   
+            </div>                                                           
+        </form>
     </body> 
 </html>

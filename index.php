@@ -80,7 +80,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Đăng nhập</a>
+                            <a class="nav-link" href="login.php" style="border-right: 1px solid #f2f2e6;">Đăng nhập</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php" style="border-right: 1px solid #f2f2e6;">Đăng ký</a>
