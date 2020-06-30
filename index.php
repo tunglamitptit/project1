@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if (isset($_COOKIE["name"])) {
+        echo $_COOKIE["name"];
+    }
+    $_SESSION["username"] = $_COOKIE["name"];
+    if(!isset($_SESSION['username'])) {
+        header("location:login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -84,6 +96,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php" style="border-right: 1px solid #f2f2e6;">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php" style="border-right: 1px solid #f2f2e6;">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

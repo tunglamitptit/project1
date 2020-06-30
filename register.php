@@ -37,9 +37,8 @@
             $sql = "INSERT INTO users (Username, Password, Email) VALUES ('$username', '$password', '$email')";
             // thực thi câu $sql với biến conn lấy từ file connect.php
             mysqli_query($conn, $sql);
-            echo "<script language='javascript'>alert('Đăng ký thành công!');</script>";
+            echo "<script language='javascript'>alert('Đăng ký thành công!');window.location='login.php';</script>";
             $username = $password = $re_password = $email = "";
-            header("location:login.php");
         }
     }
 
@@ -133,8 +132,7 @@
                     <div class="warning"><span class="error"><?php echo $emailErr;?></span></div>
                 </div>                    
                 <div>
-                    <button id="submit" type="submit" name="submit">Register</button>
-                    <button id="submit" name="login" style="margin-left: 20px;">Login</button>
+                    <button id="submit" type="submit" name="submit" style="margin: 0 90px;">Register</button>
                 </div>   
             </div>                                                    
         </form>

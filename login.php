@@ -1,13 +1,20 @@
 <?php
+    session_start();
     include "connect.php";
     $name = $pass = $err = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST["username"];
-        $pass = $_POST["password"];
-        $pass = md5($pass);
-        $result = $conn->query("SELECT * FROM users WHERE Username='$name' AND Password='$pass'");
-        if ($result->num_rows > 0) {
-            echo "1";
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $password = md5($password);
+        $a_check = ((isset($_POST['remember'])!=0)?1:"");
+        $cookie_name = 'siteAuth';
+        $cookie_time = (3600 * 24 * 30);
+        $result = $conn->query("SELECT * FROM users WHERE Username='$username' AND Password='$password'");
+        if ($result->num_rows > 0) {       
+            $_SESSION["username"] = $username;
+            $_SESSION["password"] = $password;
+            setcookie("name", $_SESSION["username"], time()+86400*30, "/", "", "0");
+            header("location:index.php");
         } else {
             $err = "Tài khoản hoặc mật khẩu không chính xác";
         }
@@ -21,7 +28,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" type="text/css" href="./login_logout.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Đăng nhập</title>
     </head>
     <body>
@@ -69,7 +76,7 @@
         </div>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="register">
             <div class="container form">
-                <div><h2>Log In</h2></div>
+                <div><h2>Login</h2></div>
                 <div class="warning"><span class="error"><?php echo $err?></span></div>
                 <div>
                     <label>Username: </label>
@@ -80,8 +87,10 @@
                     <input type="password" name="password" class="form-control">
                 </div>                                    
                 <div>
-                    <button id="submit" type="submit" name="login" style="margin: 10px 95px;">Login</button>
-                </div>   
+                    <button id="submit" type="submit" name="login">Login</button>
+                    <button id="submit" name="register" style="margin-left: 19px;"><a href="register.php" style="color: #000000; text-decoration: none;">Register</a></button>
+                </div>
+                <input type="checkbox">   
             </div>                                                           
         </form>
     </body> 
