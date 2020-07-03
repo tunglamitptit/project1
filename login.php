@@ -6,19 +6,20 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
         $password = md5($password);
-        $a_check = ((isset($_POST['remember'])!=0)?1:"");
-        $cookie_name = 'siteAuth';
-        $cookie_time = (3600 * 24 * 30);
         $result = $conn->query("SELECT * FROM users WHERE Username='$username' AND Password='$password'");
         if ($result->num_rows > 0) {       
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
-            setcookie("name", $_SESSION["username"], time()+86400*30, "/", "", "0");
+            setcookie("name", $username, time()+86400*30, "/", "", 0);
+            // if (isset($_POST["remember"])) {
+            //     setcookie("pass", $password, time()+86400*30, "/", "", 0);
+            // }
             header("location:index.php");
         } else {
             $err = "Tài khoản hoặc mật khẩu không chính xác";
         }
     }  
+    $conn->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,7 +91,7 @@
                     <button id="submit" type="submit" name="login">Login</button>
                     <button id="submit" name="register" style="margin-left: 19px;"><a href="register.php" style="color: #000000; text-decoration: none;">Register</a></button>
                 </div>
-                <input type="checkbox">   
+                <!-- <input type="checkbox" name="remember"><label>Remember Password</label>    -->
             </div>                                                           
         </form>
     </body> 

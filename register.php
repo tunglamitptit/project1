@@ -41,17 +41,6 @@
             $username = $password = $re_password = $email = "";
         }
     }
-
-    // $result = $conn->query("SELECT * FROM users");
-
-    // if ($result->num_rows > 0) {
-    //   // output data of each row
-    //   	while($row = $result->fetch_assoc()) {
-    //     	echo "id: " . $row["ID"]. " - Name: " . $row["Username"]. " - Pass: " . $row["Password"]. "<br>";
-    //   	}
-    // } else {
-    //   echo "0 results";
-    // }
     $conn->close();
 ?>
 <!DOCTYPE html>

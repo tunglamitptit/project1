@@ -1,19 +1,17 @@
 <?php
     session_start();
-    if (isset($_COOKIE["name"])) {
-        echo $_COOKIE["name"];
-    }
     $_SESSION["username"] = $_COOKIE["name"];
     if(!isset($_SESSION['username'])) {
         header("location:login.php");
         exit;
     }
+    // $result = $conn->query("SELECT * FROM product_listing");
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project</title>  
+        <title>Home</title>  
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
@@ -92,12 +90,6 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php" style="border-right: 1px solid #f2f2e6;">Đăng nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php" style="border-right: 1px solid #f2f2e6;">Đăng ký</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="logout.php" style="border-right: 1px solid #f2f2e6;">Đăng xuất</a>
                         </li>
                     </ul>
@@ -109,10 +101,10 @@
                 <div class="slide_2"></div>
                 <div class="slide_3"></div>
             </div>
-            <div class="move">
+            <!-- <div class="move">
                 <span id="btn-prev">&#8249;</span>
                 <span id="btn-next">&#8250;</span>
-            </div>
+            </div> -->
             <div class="nut">               
                 <ul class="round">
                     <li></li>
