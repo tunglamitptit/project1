@@ -63,10 +63,6 @@
                         <label>Content: </label>
                         <input type="text" name="content" class="form-control" >
                     </div>                   
-                    <!-- <div>
-                        <label>Email: </label>
-                        <input type="email" name="email" class="form-control">
-                    </div> -->
                     <div>
                         <input multiple type="file" name="image">
                     </div>
@@ -76,9 +72,11 @@
                 </form>
             </fieldset>
             <!-- <?php
-                $result = $conn->query("SELECT * FROM product_listing WHERE ID = '5'");               
-                $row = $result->fetch_array();
-                echo '<img src='.$row['Image'].' />';
+                $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");             
+                while ($row = $result->fetch_array()) {
+                    echo '<img src='.$row['Image'].' />';
+
+                }
             ?> -->
         </div>      
     </body>

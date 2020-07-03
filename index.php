@@ -1,13 +1,20 @@
 <?php
     session_start();
+    include 'connect.php';    
     $_SESSION["username"] = $_COOKIE["name"];
     if(!isset($_SESSION['username'])) {
         header("location:login.php");
         exit;
     }
-    // $result = $conn->query("SELECT * FROM product_listing");
+    $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
+    // $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
+    // $current_page = !empty($_GET['page'])?$_GET['page']:1; //Trang hiện tại
+    // $offset = ($current_page - 1) * $item_per_page;
+    // $totalRecords = mysqli_query($conn, "SELECT * FROM 'product_listing'");
+    // $totalRecords = $totalRecords->num_rows;
+    // $totalPages = ceil($totalRecords / $item_per_page);
+    // include 'pagination.php';
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -279,7 +286,17 @@
             <div class="container">
                 <h1 class="news-title">dòng xe ưa chuộng</h1>
                 <div class="row">
+                    <?php
+                        while ($row = $result->fetch_array()) {
+                    ?>
                     <div class="col-sm-3">
+                        <a href="#"><img src="<?= $row['Image'] ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                        <h2>
+                            <a href="#"><?= $row['Car_name'] ?></a>
+                            <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
+                        </h2>
+                    </div>
+                    <!-- <div class="col-sm-3">
                         <a href="#"><img src="./Images/mazda-cx8-autopro-3-1561332705661136487765.jpg" alt="sieu xe" class="img-car"></a>
                         <h2>
                             <a href="#">Mazda CX-8 2020</a>
@@ -334,7 +351,8 @@
                             <a href="#">Ford Focus 2020</a>
                             <span class="price">770.000.000 VNĐ</span>
                         </h2>
-                    </div>
+                    </div> -->
+                    <?php }?>
                 </div>
             </div>
         </div>       
