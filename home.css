@@ -78,6 +78,37 @@ body, html {
 .w3-dropdown-hover.more:hover {
     color: #0095eb;
 }
+.dropdown .dropdown-menu a:hover {
+    text-decoration: none;
+}
+.avatar img {
+    height: 40px;
+}
+.navbar .navbar-nav li .dropdown-menu:before {
+    position: absolute;
+    top: -9.5px;
+    left: 25px;
+    display: inline-block;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #e1e6ef;
+    border-left: 8px solid transparent;
+    content: '';
+}
+.dropdown-menu {
+    margin: 2px 0;
+    padding: 0;
+}
+.dropdown .dropdown-menu .dropdown-menu-header {
+    background-color: #f2f4f8;
+}
+.navbar .navbar-nav li .dropdown-menu li a .label {
+    position: absolute;
+    right: 10px;
+}
+.dropdown .dropdown-menu>li {
+    position: relative;
+    line-height: 40px;
+}
 .slider {
     height: 80%;
     width: 100%;

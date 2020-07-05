@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     include "connect.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['image'])) {
         if ($_FILES['image']['error'] > 0)
@@ -20,20 +20,14 @@
             }
             if (empty($errors)) {
                 move_uploaded_file($_FILES['image']['tmp_name'], 'images/'.$_FILES['image']['name']);
-                // echo "upload thành công <br/>";
-                // echo  $_FILES['image']['tmp_name'] . '<br>';
-                // echo $_FILES['image']['name'] . '<br>';
-                // echo 'Dường dẫn: upload/' . $_FILES['image']['name'] . '<br>';
-                // echo 'Loại file: ' . $_FILES['image']['type'] . '<br>';
-                // echo 'Dung lượng: ' . ((int)$_FILES['image']['size'] / 1024) . 'KB';
-            }              
-        }
+            }   
+        } 
         $name = $_POST['car_name'];
         $price = $_POST['price'];
         $img = 'images/'.$_FILES['image']['name'];
-        $sql = $conn->query("INSERT INTO product_listing (Car_name, Image, price) VALUES ('$name', '$img', '$price')");
+        $sql = $conn->query("INSERT IGNORE INTO product_listing (Car_name, Image, price) VALUES ('$name', '$img', '$price')");                
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +42,65 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     </head>
     <body>
-        <div id="upload-zone" class="box-content">
+        <div id="action_bar">
+            <div class="container">
+                <ul class="contact_details">
+                    <li class="slogan">Have any question?</li>
+                    <li class="phone">
+                        <i class="fa fa-phone" style="color: #adadad"></i>
+                        <a href="#">+84 397 561 148</a>
+                    </li>
+                    <li class="email">
+                        <i class="fa fa-envelope" style="color: #adadad"></i>
+                        <a href="#">tunglamldk@gmail.com</a>
+                    </li>
+                </ul>
+                <ul class="social">
+                    <li class="skype">
+                        <a href="#" title="Skype">
+                            <i class="fa fa-skype"></i>
+                        </a>
+                    </li>
+                    <li class="facebook">
+                        <a href="#" title="Facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#" title="Twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="instagram">
+                        <a href="#" title="Instagram">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="youtube">
+                        <a href="#" title="YouTube">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="position: absolute;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div id="upload-zone" class="container">
             <fieldset>
                 <form action="?upload=file" method="POST" enctype="multipart/form-data">
                     <div>
@@ -71,13 +123,6 @@
                     </div>                 
                 </form>
             </fieldset>
-            <!-- <?php
-                $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");             
-                while ($row = $result->fetch_array()) {
-                    echo '<img src='.$row['Image'].' />';
-
-                }
-            ?> -->
         </div>      
     </body>
 </html>

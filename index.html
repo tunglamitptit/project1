@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     session_start();
     include 'connect.php';    
     $_SESSION["username"] = $_COOKIE["name"];
@@ -14,7 +14,7 @@
     // $totalRecords = $totalRecords->num_rows;
     // $totalPages = ceil($totalRecords / $item_per_page);
     // include 'pagination.php';
-?>
+?> -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -89,15 +89,34 @@
                             <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Salon ô tô</a>
                         </li>
                         <li class="nav-item w3-dropdown-hover" style="border-right: 1px solid #f2f2e6;">
-                            <a class="nav-link w3-button w3-primary more" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tin tức xe hơi</a>
+                            <a class="nav-link more" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tin tức xe hơi</a>
                             <div class="w3-dropdown-content w3-bar-block w3-border" aria-labelledby="navbarDropdownMenuLink" style="z-index: 4;">
-                              <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Action</a>
-                              <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Another action</a>
-                              <a class="w3-bar-item w3-button more" style="text-decoration: none;" href="#">Something else here</a>
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Action</a>
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Another action</a>
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Something else here</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php" style="border-right: 1px solid #f2f2e6;">Đăng xuất</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="./Images/BMW.png"/><span class="badge">9</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-menu-header text-center">
+                                    <strong>Account</strong>
+                                </li>
+                                <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
+                                <li class="dropdown-menu-header text-center">
+                                    <strong>Settings</strong>
+                                </li>
+                                <li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-usd"></i> Payments <span class="label label-default">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-file"></i> Projects <span class="label label-primary">42</span></a></li>
+                                <li class="divider"></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
+                                <li class="m_2"><a href="logout.php"><i class="fa fa-lock"></i> Logout</a></li>	
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -285,7 +304,7 @@
         <div class="vehicles">
             <div class="container">
                 <h1 class="news-title">dòng xe ưa chuộng</h1>
-                <div class="row">
+                <!-- <div class="row">
                     <?php
                         while ($row = $result->fetch_array()) {
                     ?>
@@ -296,64 +315,8 @@
                             <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
                         </h2>
                     </div>
-                    <!-- <div class="col-sm-3">
-                        <a href="#"><img src="./Images/mazda-cx8-autopro-3-1561332705661136487765.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Mazda CX-8 2020</a>
-                            <span class="price">1.224.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/audi-r8-v10-dau-xe.jpg " alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Audi R8 2020</a>
-                            <span class="price">4.865.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                       <a href="#"><img src="./Images/dau-xe-bmw-i8-roadster-muaxegiatot-vn.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">BMW i8</a>
-                            <span class="price">7.800.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/492282edcd60cd3c589395d7da69baff.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Mercedes-Benz C300</a>
-                            <span class="price">1.369.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/lexus-es-250-gia-bao-nhieu.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Lexus ES 250 2020</a>
-                            <span class="price">2.540.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/vios-1.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Toyota Vios 2020</a>
-                            <span class="price">425.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/city-design-styling.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Honda City 2020</a>
-                            <span class="price">599.000.000 VNĐ</span>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#"><img src="./Images/Ford-Focus-2018-trend-ecoboost-2-1.jpg" alt="sieu xe" class="img-car"></a>
-                        <h2>
-                            <a href="#">Ford Focus 2020</a>
-                            <span class="price">770.000.000 VNĐ</span>
-                        </h2>
-                    </div> -->
                     <?php }?>
-                </div>
+                </div> -->
             </div>
         </div>       
         <div class="done" style="background-color: #edeef0;">
