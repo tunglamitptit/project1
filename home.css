@@ -83,6 +83,7 @@ body, html {
 }
 .avatar img {
     height: 40px;
+    /* width: 100px; */
 }
 .navbar .navbar-nav li .dropdown-menu:before {
     position: absolute;

@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     session_start();
     include 'connect.php';    
     $_SESSION["username"] = $_COOKIE["name"];
@@ -14,7 +14,7 @@
     // $totalRecords = $totalRecords->num_rows;
     // $totalPages = ceil($totalRecords / $item_per_page);
     // include 'pagination.php';
-?> -->
+?>
 <!DOCTYPE html>
 <html>
     <head>

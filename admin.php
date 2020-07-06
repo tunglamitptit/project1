@@ -35,14 +35,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-        <link rel="stylesheet" type="text/css" href="./home.css">
+        <!-- <link rel="stylesheet" type="text/css" href="./home.css"> -->
+        <link rel="stylesheet" type="text/css" href="./admin.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./1.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     </head>
     <body>
-        <div id="action_bar">
+        <!-- <div id="action_bar">
             <div class="container">
                 <ul class="contact_details">
                     <li class="slogan">Have any question?</li>
@@ -83,14 +84,15 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div style="position: absolute;">
             <ul class="nav flex-column">
+                <li class="nav-header">Admin menu</li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="product_listing.php">Quan ly san pham</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Link</a>
@@ -99,30 +101,6 @@
                   <a class="nav-link" href="#">Disabled</a>
                 </li>
             </ul>
-        </div>
-        <div id="upload-zone" class="container">
-            <fieldset>
-                <form action="?upload=file" method="POST" enctype="multipart/form-data">
-                    <div>
-                        <label>Ten: </label>
-                        <input type="text" name="car_name" class="form-control">
-                    </div>                  
-                    <div>
-                        <label>Price: </label>
-                        <input type="price" name="price" class="form-control">
-                    </div>
-                    <div>
-                        <label>Content: </label>
-                        <input type="text" name="content" class="form-control" >
-                    </div>                   
-                    <div>
-                        <input multiple type="file" name="image">
-                    </div>
-                    <div>
-                        <input type="submit" value="Upload File" name="up">
-                    </div>                 
-                </form>
-            </fieldset>
-        </div>      
+        </div>     
     </body>
 </html>
