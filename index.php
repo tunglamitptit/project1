@@ -304,19 +304,19 @@
         <div class="vehicles">
             <div class="container">
                 <h1 class="news-title">dòng xe ưa chuộng</h1>
-                <!-- <div class="row">
+                <div class="row">
                     <?php
                         while ($row = $result->fetch_array()) {
                     ?>
                     <div class="col-sm-3">
-                        <a href="#"><img src="<?= $row['Image'] ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                        <a href="#"><img src="<?= $row['Images'] ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
                         <h2>
                             <a href="#"><?= $row['Car_name'] ?></a>
                             <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
                         </h2>
                     </div>
                     <?php }?>
-                </div> -->
+                </div>
             </div>
         </div>       
         <div class="done" style="background-color: #edeef0;">

@@ -1,7 +1,9 @@
 <?php
-    include "connect.php";
-    include "function.php";
-    add_product();
+    include 'function.php';
+    if(isset($_GET['edit'])){ 
+        $id = $_GET['edit'];
+        edit_product();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +35,10 @@
                         <input multiple type="file" name="image">
                     </div>
                     <div>
-                        <input type="submit" value="Upload File" name="up">
+                        <input type="submit" value="process" name="up">
                     </div>                 
                 </form>
             </fieldset>
         </div>      
     </body>
-</html>
+</html>v>

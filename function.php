@@ -1,55 +1,68 @@
 <?php
-    function uploadFiles($uploadedFiles) {
-        $files = array();
-        $errors = array();
-        foreach ($uploadedFiles as $key => $values) {
-            foreach ($values as $index => $values) {
-
+    function del_product($id) {
+        include "connect.php";
+        global $db;
+        $sql = "DELETE FROM product_listing WHERE id = '$id'";
+        $db = $conn->query($sql) or die('Loi truy van');
+    }
+    function add_product() {
+        include 'connect.php';    
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['image'])) {
+            if ($_FILES['image']['error'] > 0)
+                echo "Upload lỗi rồi!";
+            else {
+                $errors = array();
+                // $file_name = $_FILES['image']['name'];
+                // $file_size = $_FILES['image']['size'];
+                // $file_tmp = $_FILES['image']['tmp_name'];
+                // $file_type = $_FILES['image']['type'];
+                $tmp = explode('.',$_FILES['image']['name']);
+                $file_exit = strtolower(end($tmp));           
+                $extensions= array("jpeg","jpg","png");            
+                if(!in_array($file_exit, $extensions)){
+                    $errors[]="Chỉ hỗ trợ upload file JPEG hoặc PNG.";
+                }           
+                if($_FILES['image']['size'] > 2097152) {
+                    $errors[]='Kích thước file không được lớn hơn 2MB';
+                }
+                if (empty($errors)) {
+                    move_uploaded_file($_FILES['image']['tmp_name'], 'images/'.$_FILES['image']['name']);
+                    $name = $_POST['car_name'];
+                    $price = $_POST['price'];
+                    $img = 'images/'.$_FILES['image']['name'];
+                    $sql = $conn->query("INSERT IGNORE INTO product_listing (Car_name, Images, Price) VALUES ('$name', '$img', '$price')");  
+                }   
+            }               
+        }
+    }
+    function edit_product() {
+        include "connect.php";
+        if(isset($_POST["process"])) {
+            $name = $_POST["name"];
+            $price= $_POST["price"];
+            $img = $_FILES['image']['name'];
+            if(isset($_FILES['image'])) {
+                if ($_FILES['image']['error'] > 0)
+                    echo "Upload lỗi rồi!";
+                else {
+                    $errors = array();
+                    $tmp = explode('.',$_FILES['image']['name']);
+                    $file_exit = strtolower(end($tmp));           
+                    $extensions= array("jpeg","jpg","png");            
+                    if(!in_array($file_exit, $extensions)){
+                        $errors[]="Chỉ hỗ trợ upload file JPEG hoặc PNG.";
+                    }           
+                    if($_FILES['image']['size'] > 2097152) {
+                        $errors[]='Kích thước file không được lớn hơn 2MB';
+                    }
+                    if (empty($errors)) {
+                        move_uploaded_file($_FILES['image']['tmp_name'], 'images/'.$_FILES['image']['name']);
+                    }
+                }
+            $sql = "UPDATE product_listing SET Car_name = '$name', Price = '$price', Images = '$img' WHERE ID = '$id ";
+            mysqli_query($conn,$sql);
+            header('location:index.php?quanly=list');
             }
         }
     }
 ?>
-<!-- <?php
-    include "connect.php";
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-    }
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-    if ($_FILES["fileToUpload"]["size"] > 1000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-      
-      // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-      
-      // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-          echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        } else {
-          echo "Sorry, there was an error uploading your file.";
-        }
-    }
-?> -->

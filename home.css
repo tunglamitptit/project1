@@ -32,6 +32,16 @@ body, html {
     margin-right: 10px;
     font-size: 14px;
     padding: 10px 0;
+    width: 100%;
+}
+.contact_details {
+    width: 100%;
+}
+@media all and (max-width: 1024px) {
+    .contact_details{ width: 100%; }
+}
+@media all and (max-width: 480px) {
+    .contact_details{ width: 50%; }
 }
 .contact_details a {
     color: #0095eb;
@@ -49,6 +59,7 @@ body, html {
     display: inline-block;
     font-size: 100%;
     margin-right: 5px;
+    width: 60%;
 }
 .social i {
     margin: 0 3px;
