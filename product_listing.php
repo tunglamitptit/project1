@@ -3,6 +3,7 @@
     include "function.php";
     // include "content.php";
     $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
+    $row = $result->fetch_array();
     if(isset($_GET['del'])){
         $id = $_GET['del']; 
         del_product($id);
