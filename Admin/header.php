@@ -3,7 +3,7 @@
     <head>
         <title>Admin</title>  
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="./admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/admin.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../jQuery v3.5.1.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">    
@@ -14,7 +14,6 @@
             <div class="container">
                 <div class="navbar">
                     <div class="navbar-nav" style="color: #ffffff; display: inline-block;">Hello <a href="admin.php">Admin</a></div>
-                    <!-- <div class="navbar-nav">Logout</div> -->
                 </div>
             </div>
         </div>
@@ -26,7 +25,7 @@
                         <a class="nav-link action" href="#">Tin tuc</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link action" href="admin.php?quanly=list">Quan ly san pham</a>           
+                        <a class="nav-link action" href="product_listing.php">Quan ly san pham</a>           
                     </li>
                     <li class="nav-item">
                         <a class="nav-link action" href="#">Don hang</a>
@@ -36,23 +35,3 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-10" id="content"><?php include 'content.php' ?></div>
-        </div>
-        <!-- <script type="text/javascript">
-            $(document).ready(function() {             
-                $(".action").click(function() {
-                    var x = $(this).html();
-                    if (x === "Quan ly san pham") {
-                        $("#content").load("product_listing.php");              
-                    } else if (x === "Tin tuc") {
-                        $("$content").load("product_listing.php")
-                    } else if (x === "Don hang") {
-                        $("$content").load("product_listing.php")
-                    } else if (x === "User") {
-                        $("$content").load("product_listing.php")
-                    }
-                });
-            });
-        </script>      -->
-    </body>
-</html>

@@ -7,9 +7,15 @@ body, html {
 * {
     box-sizing: border-box;
 }
+/* @media all and (max-width: 1024px) {
+    .contact_details{ width: 100%; }
+}
+@media all and (max-width: 480px) {
+    .contact_details{ width: 50%; }
+} */
 #action_bar {
     height: 40px;
-    /* line-height: 21px; */
+    line-height: 21px;
     top: 0;
     left: 0;
     width: 100%;
@@ -19,7 +25,7 @@ body, html {
 #action_bar .container {
     height: 100%;
     padding: 0;
-} 
+}
 #action_bar .contact_details {
     margin: 0;
     padding: 0;
@@ -32,16 +38,6 @@ body, html {
     margin-right: 10px;
     font-size: 14px;
     padding: 10px 0;
-    width: 100%;
-}
-.contact_details {
-    width: 100%;
-}
-@media all and (max-width: 1024px) {
-    .contact_details{ width: 100%; }
-}
-@media all and (max-width: 480px) {
-    .contact_details{ width: 50%; }
 }
 .contact_details a {
     color: #0095eb;
@@ -59,7 +55,6 @@ body, html {
     display: inline-block;
     font-size: 100%;
     margin-right: 5px;
-    width: 60%;
 }
 .social i {
     margin: 0 3px;
