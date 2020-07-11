@@ -286,10 +286,6 @@ span#btn-next {
 }
 .overlay {
     height: 200px;
-    top: 0;
-    left: 0;
-    /* opacity: 0.4;
-    background-color: #333333; */
     background-size: cover;
     background-image: url(./Images/mua_ban_oto.jpg);
     background-position: center;
@@ -299,7 +295,7 @@ span#btn-next {
 .overlay1 {
     height: 200px;
     background-size: cover;
-    background-image: url(./Images/dang-tin-ban-xe.jpg);
+    background-image: url(../Images/dang-tin-ban-xe.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }

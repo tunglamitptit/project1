@@ -1,11 +1,12 @@
 <?php
-    include "connect.php";
+    include "../connect.php";
     include_once "function.php";
     include "header.php";
     include "footer.php";
     $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
 ?>
-    <div style="padding: 10px 40px; width: 100%;" class="col-sm-10" id="content">
+<div style="padding: 10px 40px; width: 100%;" class="col-sm-10" id="content">
+    <fieldset>
         <table>   
             <div class="header text-center">Quan ly san pham</div>
             <div style="float: right;"><a href="add_product.php">Them san pham</a></div>
@@ -29,4 +30,5 @@
                 del_product($id);
             }
         ?>
-    </div>             
+    </fieldset>
+</div>             

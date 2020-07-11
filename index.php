@@ -274,7 +274,7 @@
                 <h1 class="news-title">thế giới xe hơi</h1>
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
+                        <img src="../Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
                         <h2>
                             <a href="#">News 1</a>
                         </h2>
@@ -309,7 +309,7 @@
                         while ($row = $result->fetch_array()) {
                     ?>
                     <div class="col-sm-3">
-                        <a href="#"><img src="<?= $row['Images'] ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                        <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
                         <h2>
                             <a href="#"><?= $row['Car_name'] ?></a>
                             <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
