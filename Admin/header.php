@@ -22,7 +22,7 @@
                 <ul class="nav flex-column" style="width: 100%">
                     <li class="nav-item header text-center">Admin menu</li>
                     <li class="nav-item">
-                        <a class="nav-link action" href="#">Tin tuc</a>
+                        <a class="nav-link action" href="news_listing.php">Tin tuc</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link action" href="product_listing.php">Quan ly san pham</a>           
@@ -31,7 +31,7 @@
                         <a class="nav-link action" href="#">Don hang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link action" href="#">User</a>
+                        <a class="nav-link action" href="user_listing.php">Users</a>
                     </li>
                 </ul>
             </div>

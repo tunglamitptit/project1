@@ -27,9 +27,9 @@
                     $errors[]='Kích thước file không được lớn hơn 2MB';
                 }
                 if (empty($errors)) {
-                    edit_product($id);
-                    echo "<script>alert('Update san pham thanh cong'); </script>";
-                    header("location:product_listing.php");
+                    edit_news($id);
+                    echo "<script>alert('Update tin tuc thanh cong'); </script>";
+                    header("location:news_listing.php");
                 }
             }       
         }
@@ -40,12 +40,8 @@
             <form action="?upload_id=<?php echo $row['ID']?>" method="POST" enctype="multipart/form-data">
                 <div class="menu">
                     <label>Ten: </label>
-                    <input type="text" name="car_name" class="form-control" value="<?php echo $row['Car_name']?>">
+                    <input type="text" name="tittle" class="form-control" value="<?php echo $row['Tittle']?>">
                 </div>                  
-                <div class="menu">
-                    <label>Price: </label>
-                    <input type="price" name="price" class="form-control" value="<?php echo $row['Price']?>">
-                </div>
                 <div class="menu">
                     <label>Content: </label>
                     <textarea name="content" rows="4" class="form-control"></textarea>

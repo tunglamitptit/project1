@@ -18,8 +18,8 @@
                 $errors[]='Kích thước file không được lớn hơn 2MB';
             }
             if (empty($errors)) {
-                add_product();
-                header("location:product_listing.php");           
+                add_news();               
+                header("location:news_listing.php");           
             }
         }
     }
@@ -28,13 +28,9 @@
     <fieldset>
         <form action="?upload=file" method="POST" enctype="multipart/form-data">
             <div class="menu">
-                <label>Ten: </label>
-                <input type="text" name="car_name" class="form-control">
+                <label>Tieu de: </label>
+                <input type="text" name="tittle" class="form-control">
             </div>                  
-            <div class="menu">
-                <label>Price: </label>
-                <input type="price" name="price" class="form-control">
-            </div>
             <div class="menu">
                 <label>Content: </label>
                 <textarea name="content" rows="4" class="form-control"></textarea>
@@ -43,7 +39,7 @@
                 <input multiple type="file" name="image">
             </div>
             <div>
-                <input type="submit" value="Upload File" name="up">
+                <input type="submit" value="Upload File" name="up" onclick="<?php echo "<script>alert('Them tin tuc thanh cong'); </script>";?>">
             </div>                 
         </form>
     </fieldset>

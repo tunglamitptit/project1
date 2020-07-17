@@ -6,7 +6,8 @@
         header("location:login.php");
         exit;
     }
-    $result = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
+    $result_car = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
+    $result_news = $conn->query("SELECT * FROM news ORDER BY 'ID' ASC");
     // $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
     // $current_page = !empty($_GET['page'])?$_GET['page']:1; //Trang hiện tại
     // $offset = ($current_page - 1) * $item_per_page;
@@ -74,9 +75,9 @@
         <div id="top_bar" style="background-color: #ffffff;">
             <div class="container">
                 <div class="navbar navbar-expand-lg">
-                    <form class="form-inline my-2 my-lg-0" action="search" method="GET">
+                    <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
                         <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;">Tìm kiếm</button>
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -96,8 +97,8 @@
                               <a class="w3-bar-item more" style="text-decoration: none;" href="#">Something else here</a>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="./Images/BMW.png"/><span class="badge">9</span></a>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="./Images/BMW.png"/><span class="badge"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-menu-header text-center">
                                     <strong>Account</strong>
@@ -117,6 +118,12 @@
                                 <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
                                 <li class="m_2"><a href="logout.php"><i class="fa fa-lock"></i> Logout</a></li>	
                             </ul>
+                        </li>
+                        <li class="nav-item dropdown cart">
+                            <a href="cart.php">
+                                <i class="fa fa-shopping-cart cart-icon"></i>
+                                <span>Giỏ hàng</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -273,31 +280,16 @@
             <div class="container">
                 <h1 class="news-title">thế giới xe hơi</h1>
                 <div class="row">
-                    <div class="col-sm-3">
-                        <img src="../Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
-                        <h2>
-                            <a href="#">News 1</a>
-                        </h2>
-                        <span class="times"></span>
-                    </div>
-                    <div class="col-sm-3">
-                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
-                        <h2>
-                            <a href="#">News 2</a>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
-                        <h2>
-                            <a href="#">News 3</a>
-                        </h2>
-                    </div>
-                    <div class="col-sm-3">
-                        <img src="./Images/2025893.jpg" alt="sieu xe" style="width: 100%;">
-                        <h2>
-                            <a href="#">News 4</a>
-                        </h2>
-                    </div>
+                    <?php  
+                        while ($row = $result_news->fetch_array()) {
+                    ?>
+                        <div class="col-sm-3">
+                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Tittle'] ?>" class="img-car"></a>
+                            <h2>
+                                <a href="#"><?= $row['Tittle'] ?></a>
+                            </h2>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>        
@@ -306,17 +298,18 @@
                 <h1 class="news-title">dòng xe ưa chuộng</h1>
                 <div class="row">
                     <?php
-                        while ($row = $result->fetch_array()) {
+                        while ($row = $result_car->fetch_array()) {
                     ?>
                     <div class="col-sm-3">
                         <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
                         <h2>
-                            <a href="#"><?= $row['Car_name'] ?></a>
+                            <a href="detail.php"><?= $row['Car_name'] ?></a>
                             <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
                         </h2>
                     </div>
                     <?php }?>
                 </div>
+                <div class="text-center"><a href="list.php">Xem thêm</a></div>
             </div>
         </div>       
         <div class="done" style="background-color: #edeef0;">
