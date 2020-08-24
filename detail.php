@@ -1,3 +1,6 @@
+<?php
+    include 'connect.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +14,7 @@
         <script type="text/javascript" src="./js/1.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     </head>
-    <body>
+    <body style="background-color: #f2f4f7">
         <div id="action_bar">
             <div class="container">
                 <ul class="contact_details">
@@ -57,8 +60,9 @@
         <div id="top_bar" style="background-color: #ffffff;">
             <div class="container">
                 <div class="navbar navbar-expand-lg">
+                    <div><a href="index.php" style="margin-right: 5px;">Home</a></div>
                     <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
                         <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="navbar-nav">
@@ -103,13 +107,71 @@
                         </li>
                         <li class="nav-item dropdown cart">
                             <a href="cart.php">
-                                <i class="fa fa-shopping-cart cart-icon"></i>
-                                <span>Giỏ hàng</span>
+                                <i class="fa fa-shopping-cart cart-icon">
+                                    <!-- <div style="number">2</div> -->
+                                    <span style="font-size: 16px;">Giỏ hàng</span>
+                                </i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <?php
+            if (isset($_GET['name'])) {
+                $kq = $_GET['name'];
+                $result = $conn->query("SELECT * FROM product_listing WHERE Car_name='$kq'");
+                $row = $result->fetch_array();
+            ?>
+            <div class="container" style="background-color: #ffffff;">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3);?>" style="width: 100%"></div>
+                        <div class="row">
+                            <div class="col-sm-3"><img src="" alt=""></div>
+                            <div class="col-sm-3"><img src="" alt=""></div>
+                            <div class="col-sm-3"><img src="" alt=""></div>
+                            <div class="col-sm-3"><img src="" alt=""></div>
+                            <div class="col-sm-3"><img src="" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h2><?= $row['Car_name']?></h2>
+                        <div style="font-size: 20px; color: #053896; margin: 20px 0"><?= number_format($row['Price'],"0", ",", ".")?> VND</div>
+                        <div>
+                            <form action="" method="POST">
+                                <div class="button_added">
+                                    <span style="color: #757575;"> Số lượng </span>
+                                    <input class="reduce is-form" type="button" value="-">
+                                    <input class="amount text-center" aria-label="quantity" type="text" value="1" min="1" name="soluong">
+                                    <input class="increase is-form" type="button" value="+">
+                                </div>
+                                <div style="width: 40%;">
+                                    <button style="width: 100%;" type="submit" class="btn btn-lg btn-primary ok" name="order">Thêm vào giỏ hàng</button>
+                                </div>
+                            </form>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        <?php 
+                if (isset($_POST['order'])) {
+                    $amount = $_POST['soluong'];
+                    $id = $row['ID'];   
+                    $sql = $conn->query("INSERT INTO order_list (Car_id, Amount) VALUES ('$id', '$amount')");
+                    echo "<script>alert('Thêm vào giỏ hàng thành công !')</script>";
+                }
+            }
+        ?>
+        <div class="container" style="background-color: #ffffff;">
+            <p>Chi tiết sản phẩm</p> 
+            <div><p>Thương hiệu</p></div>
+            <div><p>Xuất xứ</p></div>
+            <div><p>Kho hàng</p></div>
+        </div>
+        <div class="container" style="background-color: #ffffff;">
+            <p>Mô tả sản phẩm</p>
+        </div>
+        
     </body>
 </html>

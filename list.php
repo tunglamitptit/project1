@@ -14,7 +14,6 @@ $result_news = $conn->query("SELECT * FROM news ORDER BY 'ID' ASC");
         <link rel="stylesheet" type="text/css" href="./css/home.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./js/1.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     </head>
     <body>
@@ -63,6 +62,7 @@ $result_news = $conn->query("SELECT * FROM news ORDER BY 'ID' ASC");
         <div id="top_bar" style="background-color: #ffffff;">
             <div class="container">
                 <div class="navbar navbar-expand-lg">
+                    <div><a href="index.php">Home </a></div>
                     <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
                         <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search">Tìm kiếm</i></button>
@@ -137,17 +137,19 @@ $result_news = $conn->query("SELECT * FROM news ORDER BY 'ID' ASC");
                         </ul>
                     </div>
                     <div class="col-sm-10">
-                        <?php
-                            while ($row = $result_car->fetch_array()) {
-                        ?>
-                        <div class="col-sm-3">
-                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
-                            <h2>
-                                <a href="detail.php"><?= $row['Car_name'] ?></a>
-                                <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
-                            </h2>
+                        <div class="row">
+                            <?php
+                                while ($row = $result_car->fetch_array()) {
+                            ?>
+                            <div class="col-sm-3">
+                                <a href="detail.php?name=<?= $row['Car_name']?>"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                                <h2>
+                                    <a href="detail.php?name=<?= $row['Car_name']?>"><?= $row['Car_name'] ?></a>
+                                    <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
+                                </h2>
+                            </div>
+                            <?php }?>
                         </div>
-                        <?php }?>
                     </div>
                 </div>              
             </div>

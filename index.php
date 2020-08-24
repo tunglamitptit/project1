@@ -8,13 +8,6 @@
     }
     $result_car = $conn->query("SELECT * FROM product_listing ORDER BY 'ID' ASC");
     $result_news = $conn->query("SELECT * FROM news ORDER BY 'ID' ASC");
-    // $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
-    // $current_page = !empty($_GET['page'])?$_GET['page']:1; //Trang hiện tại
-    // $offset = ($current_page - 1) * $item_per_page;
-    // $totalRecords = mysqli_query($conn, "SELECT * FROM 'product_listing'");
-    // $totalRecords = $totalRecords->num_rows;
-    // $totalPages = ceil($totalRecords / $item_per_page);
-    // include 'pagination.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,9 +68,10 @@
         <div id="top_bar" style="background-color: #ffffff;">
             <div class="container">
                 <div class="navbar navbar-expand-lg">
+                    <div><a href="index.php" style="margin-right: 5px;">Home</a></div>
                     <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search"></i></button>
+                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search">Tìm kiếm</i></button>
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -284,9 +278,9 @@
                         while ($row = $result_news->fetch_array()) {
                     ?>
                         <div class="col-sm-3">
-                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Tittle'] ?>" class="img-car"></a>
+                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Title'] ?>" class="img-car"></a>
                             <h2>
-                                <a href="#"><?= $row['Tittle'] ?></a>
+                                <a href="#"><?= $row['Title'] ?></a>
                             </h2>
                         </div>
                     <?php } ?>
@@ -301,9 +295,9 @@
                         while ($row = $result_car->fetch_array()) {
                     ?>
                     <div class="col-sm-3">
-                        <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                        <a href="detail.php?name=<?= $row['Car_name']?>"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
                         <h2>
-                            <a href="detail.php"><?= $row['Car_name'] ?></a>
+                            <a href="detail.php?name=<?= $row['Car_name']?>"><?= $row['Car_name'] ?></a>
                             <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
                         </h2>
                     </div>

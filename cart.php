@@ -1,5 +1,5 @@
 <?php
-    
+    include 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -67,8 +67,21 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            
+        <div class="container">
+            <?php
+                $result = $conn->query("SELECT * FROM order_list");
+                while ($row = $result->fetch_array()) {
+            ?>
+                    <div>Giảm giá</div>
+                    <div style="display: inline-block">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                    </div>
+            <?php        
+                }
+            ?>
         </div>
     </body>
 </html>

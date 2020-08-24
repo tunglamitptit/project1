@@ -1,3 +1,6 @@
+<?php
+    include 'connect.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,6 +56,90 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div id="top_bar" style="background-color: #ffffff;">
+            <div class="container">
+                <div class="navbar navbar-expand-lg">
+                    <div><a href="index.php" style="margin-right: 5px;">Home</a></div>
+                    <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search">Tìm kiếm</i></button>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Mua bán ô tô</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Bảng giá ô tô</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Salon ô tô</a>
+                        </li>
+                        <li class="nav-item w3-dropdown-hover" style="border-right: 1px solid #f2f2e6;">
+                            <a class="nav-link more" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tin tức xe hơi</a>
+                            <div class="w3-dropdown-content w3-bar-block w3-border" aria-labelledby="navbarDropdownMenuLink" style="z-index: 4;">
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Action</a>
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Another action</a>
+                              <a class="w3-bar-item more" style="text-decoration: none;" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="./Images/BMW.png"/><span class="badge"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-menu-header text-center">
+                                    <strong>Account</strong>
+                                </li>
+                                <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
+                                <li class="dropdown-menu-header text-center">
+                                    <strong>Settings</strong>
+                                </li>
+                                <li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-usd"></i> Payments <span class="label label-default">42</span></a></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-file"></i> Projects <span class="label label-primary">42</span></a></li>
+                                <li class="divider"></li>
+                                <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
+                                <li class="m_2"><a href="logout.php"><i class="fa fa-lock"></i> Logout</a></li>	
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown cart">
+                            <a href="cart.php">
+                                <i class="fa fa-shopping-cart cart-icon"></i>
+                                <span>Giỏ hàng</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <?php
+                if (isset($_GET['search'])) {
+                    $kq = $_GET['search'];
+                    $result = $conn->query("SELECT * FROM product_listing WHERE Car_name LIKE '%$kq%'");
+                    if ($result->num_rows > 0) {
+            ?>
+                        <div class="row">
+                            <?php while ($row = $result->fetch_array()) { ?>
+                            <div class="col-sm-3">
+                                <a href="detail.php?name=<?= $row['Car_name']?>"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Car_name'] ?>" class="img-car"></a>
+                                <h2>
+                                    <a href="detail.php?name=<?= $row['Car_name']?>"><?= $row['Car_name'] ?></a>
+                                    <span class="price"><?= number_format($row['Price'], 0, ",", ".") ?> VNĐ</span>
+                                </h2>
+                            </div>
+                        <?php   } ?>
+                            </div>
+            <?php   }
+                    else { ?>
+                        <div><span style="width: 100%; text-align: center;">Không tìm thấy kết quả phù hợp</span></div>
+            <?php
+                    }
+                }
+            ?>
         </div>
     </body>
 </html>

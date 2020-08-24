@@ -22,8 +22,8 @@
                 ?>
                     <tr>
                         <td class="text-center"><?= $i?></td>
-                        <td><img src="<?= $row['Images'] ?>" title="<?= $row['Tittle'] ?>" class="img-car"></td>
-                        <td class="text-center"><?= $row['Tittle'] ?></td>
+                        <td><img src="<?= $row['Images'] ?>" title="<?= $row['Title'] ?>" class="img-car"></td>
+                        <td class="text-center"><?= $row['Title'] ?></td>
                         <td><?= $row['Content'] ?></span></td>
                         <td class="text-center"><a href="edit_news.php?edit_id=<?php echo $row['ID']; ?>">Sua</a></td>
                         <td class="text-center"><a onclick="window.confirm('Bạn muốn xóa không');" href="?del_id=<?php echo $row['ID']; ?>">Xoa</a></td>
