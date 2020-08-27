@@ -1,5 +1,10 @@
 <?php
     include 'connect.php';
+    session_start();
+    $name = $_SESSION['username'];
+    $user = $conn->query("SELECT ID FROM users WHERE Username='$name'"); 
+    $detail = $user->fetch_array();
+    $user_id = $detail['ID'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -157,8 +162,8 @@
         <?php 
                 if (isset($_POST['order'])) {
                     $amount = $_POST['soluong'];
-                    $id = $row['ID'];   
-                    $sql = $conn->query("INSERT INTO order_list (Car_id, Amount) VALUES ('$id', '$amount')");
+                    $car_id = $row['ID']; 
+                    $sql = $conn->query("INSERT INTO order_list (User_id, Car_id, Amount) VALUES ('$user_id', '$car_id', '$amount')");
                     echo "<script>alert('Thêm vào giỏ hàng thành công !')</script>";
                 }
             }

@@ -278,9 +278,9 @@
                         while ($row = $result_news->fetch_array()) {
                     ?>
                         <div class="col-sm-3">
-                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Title'] ?>" class="img-car"></a>
+                            <a href="#"><img src="<?= substr($row['Images'], 3, strlen($row['Images'])-3); ?>" title="<?= $row['Tittle'] ?>" class="img-car"></a>
                             <h2>
-                                <a href="#"><?= $row['Title'] ?></a>
+                                <a href="#"><?= $row['Tittle'] ?></a>
                             </h2>
                         </div>
                     <?php } ?>

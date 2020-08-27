@@ -11,9 +11,6 @@
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
             setcookie("name", $username, time()+86400*30, "/", "", 0);
-            // if (isset($_POST["remember"])) {
-            //     setcookie("pass", $password, time()+86400*30, "/", "", 0);
-            // }
             header("location:index.php");
         } else {
             $err = "Tài khoản hoặc mật khẩu không chính xác";
