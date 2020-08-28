@@ -65,14 +65,16 @@
                 </ul>
             </div>
         </div>
+        <div id="search">
+            <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+                <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search">Tìm kiếm</i></button>
+            </form>
+        </div>
         <div id="top_bar" style="background-color: #ffffff;">
             <div class="container">
                 <div class="navbar navbar-expand-lg">
                     <div><a href="index.php" style="margin-right: 5px;">Home</a></div>
-                    <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #1c1c1b;"><i class="fa fa-search">Tìm kiếm</i></button>
-                    </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="#" style="border-right: 1px solid #f2f2e6;">Mua bán ô tô</a>
@@ -124,14 +126,11 @@
             </div>
         </div>
         <div class="slide">
-            <div class="slide_1 active"></div>
-                <div class="slide_2"></div>
-                <div class="slide_3"></div>
+            <div id="active" class="slide_1"></div>
+            <div class="move">
+                <span id="moved-on" class="btn-prev">&#8249;</span>
+                <span id="moved-on" class="btn-next">&#8250;</span>
             </div>
-            <!-- <div class="move">
-                <span id="btn-prev">&#8249;</span>
-                <span id="btn-next">&#8250;</span>
-            </div> -->
             <div class="nut">               
                 <ul class="round">
                     <li></li>

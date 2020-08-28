@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    amount();
+    slideShow();
+});
+
+function amount() {
     $(".is-form").click(function() {
         var type = $(this).val();
         var soluong = parseInt($(".amount").val());
@@ -17,10 +22,43 @@ $(document).ready(function() {
     if ($(".amount").val() == "") {
         $(".amount").val(1);
     }
-});
-// function slideShow() {
+}
 
-// }
+function slideShow() {
+    $('#moved-on').click(function() {
+        if ($('#moved-on').hasClass('btn-prev')) {
+            var number_img = 3;
+            if (number_img == 1) {
+                $('#active').removeClass('slide_1').removeClass('slide_2');
+                number_img = 3;
+                console.log(number_img);
+            } else if (number_img == 2) {
+                $('#active').addClass('slide_1');
+                number_img = 1;
+                console.log(number_img);
+            } else {
+                $('#active').addClass('slide_2');
+                number_img = 2;
+                console.log(number_img);
+            }
+        } else {
+            var number_img = 1;
+            if (number_img == 1) {
+                $('#active').addClass('slide_2');
+                number_img = 2;
+                console.log(number_img);
+            } else if (number_img == 2) {
+                $('#active').addClass('slide_3');
+                number_img = 3;
+                console.log(number_img);
+            } else {
+                $('#active').removeClass('slide_2').removeClass('slide_3');
+                number_img = 1;
+                console.log(number_img);
+            }
+        }
+    });
+}
 // document.addEventListener("DOMContentLoaded",function() {
 //     var nut = document.querySelectorAll('div.nut ul li');
 //     var slides = document.querySelectorAll('div.slide div');
