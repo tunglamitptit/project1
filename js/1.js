@@ -7,7 +7,6 @@ function amount() {
     $(".is-form").click(function() {
         var type = $(this).val();
         var soluong = parseInt($(".amount").val());
-        // alert(type);
         if (type == "-") {
             if (soluong <= 1) {
                 soluong = 1;
@@ -24,40 +23,44 @@ function amount() {
     }
 }
 
+var number_img = 1;
 function slideShow() {
-    $('#moved-on').click(function() {
-        if ($('#moved-on').hasClass('btn-prev')) {
-            var number_img = 3;
-            if (number_img == 1) {
-                $('#active').removeClass('slide_1').removeClass('slide_2');
-                number_img = 3;
-                console.log(number_img);
-            } else if (number_img == 2) {
-                $('#active').addClass('slide_1');
-                number_img = 1;
-                console.log(number_img);
-            } else {
-                $('#active').addClass('slide_2');
-                number_img = 2;
-                console.log(number_img);
-            }
+    $('.btn-prev').click(function() {
+        if (number_img == 1) {
+            $('#active').removeClass('slide_1').addClass('slide_3');
+            number_img = 3;
+            console.log(number_img);
+        } else if (number_img == 2) {
+            $('#active').removeClass('slide_2').addClass('slide_1');
+            number_img = 1;
+            console.log(number_img);
         } else {
-            var number_img = 1;
-            if (number_img == 1) {
-                $('#active').addClass('slide_2');
-                number_img = 2;
-                console.log(number_img);
-            } else if (number_img == 2) {
-                $('#active').addClass('slide_3');
-                number_img = 3;
-                console.log(number_img);
-            } else {
-                $('#active').removeClass('slide_2').removeClass('slide_3');
-                number_img = 1;
-                console.log(number_img);
-            }
+            $('#active').removeClass('slide_3').addClass('slide_2');
+            number_img = 2;
+            console.log(number_img);
         }
     });
+    $('.btn-next').click(function() {
+        if (number_img == 1) {
+            $('#active').removeClass('slide_1').addClass('slide_2');
+            number_img = 2;
+            console.log(number_img);
+        } else if (number_img == 2) {
+            $('#active').removeClass('slide_2').addClass('slide_3');
+            number_img = 3;
+            console.log(number_img);
+        } else {
+            $('#active').removeClass('slide_3').addClass('slide_1');
+            number_img = 1;
+            console.log(number_img);
+        }
+    });
+    var index = $('.round li');
+    for (var i = 0; i < index.length; i++) {
+        index[i].click(function() {
+            
+        });
+    }
 }
 // document.addEventListener("DOMContentLoaded",function() {
 //     var nut = document.querySelectorAll('div.nut ul li');
